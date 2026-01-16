@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FKS Press Admin</title>
+</head>
+<body>
+  <h1>Admin Login</h1>
+  <input type="password" id="password" placeholder="Enter password">
+  <button onclick="login()">Login</button>
+
+  <div id="editor" style="display:none;">
+    <h2>Edit Main Headline</h2>
+    <textarea id="headlineText" rows="4" cols="50">Breaking News: Major Event Happens</textarea><br>
+    <button onclick="saveContent()">Save</button>
+  </div>
+
+  <script>
+    const adminPassword = 'FKS123'; // set your password here
+
+    function login() {
+      const pw = document.getElementById('password').value;
+      if(pw === adminPassword){
+        document.getElementById('editor').style.display = 'block';
+        alert('Access granted. You can edit now.');
+      } else {
+        alert('Incorrect password!');
+      }
+    }
+
+    function saveContent() {
+      const newText = document.getElementById('headlineText').value;
+      alert('Text saved locally: ' + newText + '\n(To update live site, edit index.html manually)');
+    }
+  </script>
+</body>
+</html>
